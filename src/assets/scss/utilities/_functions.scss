@@ -1,0 +1,15 @@
+// ==========================================================================
+// Functions
+// ==========================================================================
+@use "variables";
+@use "sass:math";
+
+// Calculate em values
+@function em($target, $context: variables.$base__font-size) {
+  @return math.div($target, $context) * 1em;
+}
+
+// Calculate rem values
+@function rem($target, $context: variables.$base__font-size) {
+  @return math.div($target, $context) * 1rem;
+}

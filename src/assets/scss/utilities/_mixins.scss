@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "variables";
+
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// * ----- font ----*
+@mixin text($size: variables.$base__font-size, $l-height:null, $weight:null, $color: null, $family: null) {
+  font-size: $size;
+  line-height: $l-height;
+  font-weight: $weight;
+  color: $color;
+  font-family: $family;
+}
+
+// BEM selectors
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+// BEM Modifier
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Media Queries
+@mixin mq($break) {
+  $value: map.get(variables.$breakpoints, $break);
+  $sm: map.get(variables.$breakpoints, 'sm');
+
+  @if $value < $sm {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}

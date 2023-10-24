@@ -1,0 +1,25 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+@use "sass:color";
+
+// Font Stacks
+$font-url--google       : 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap';
+$font-family-primary    : 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Font Weights
+$font-weight--light      : 300;
+$font-weight--medium     : 400;
+$font-weight--bold       : 700;
+
+// Text
+$base__font-size  : 16px;
+
+// Breakpoints
+$breakpoints: (
+  'xm': 320px,
+  'sm': 576px,
+ 'med': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+);

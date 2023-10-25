@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 body {
   font-size: $base__font-size;
   }

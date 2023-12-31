@@ -24,7 +24,7 @@
     "@commitlint/config-conventional": "^18.0.0",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vue/test-utils": "^2.4.1",
-    "eslint": "^8.49.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.0",
     "jsdom": "^22.1.0",

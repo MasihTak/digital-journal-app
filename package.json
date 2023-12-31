@@ -8,10 +8,11 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:unit": "vitest",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "lint": "eslint . --ext .vue,.js --fix --ignore-path .gitignore",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
     "bootstrap": "^5.3.2",
     "pinia": "^2.1.6",
     "sass": "^1.69.4",

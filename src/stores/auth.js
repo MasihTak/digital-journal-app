@@ -10,49 +10,90 @@ export const useAuthStore = defineStore("auth", () => {
         error.value = err.message;
     };
 
+    const setUser = (userData) => {
+        user.value = userData;
+    };
+
+    /**
+     * Fetches the current user from the server.
+     * @returns {Promise<void>}
+     * @throws {Error}
+     */
     const getUser = async () => {
         try {
-            user.value = await supabaseClient.auth.getUser();
+            const {user: userData, error: userError} = await supabaseClient.auth.getUser();
+            if (userError) {
+                handleError(userError);
+            } else {
+                setUser(userData);
+            }
         } catch (err) {
             handleError(err);
         }
     };
 
+    /**
+     * Signs up a new user.
+     * @param email
+     * @param password
+     * @param name
+     * @param family
+     * @returns {Promise<void>}
+     * @throws {Error}
+     */
     const signUp = async (email, password, name, family) => {
-        const {error} = await supabaseClient.auth.signUp(
-            {
-                email, password,
+        try {
+            const {data, error: signUpError} = await supabaseClient.auth.signUp({
+                email,
+                password,
                 options: {
-                    data: {
-                        name,
-                        family
-                    }
-                }
-            },
-        );
+                    data: {name, family},
+                },
+            });
 
-        if (error) {
-            handleError(error);
+            if (signUpError) {
+                handleError(signUpError);
+            } else {
+                setUser(data);
+            }
+        } catch (err) {
+            handleError(err);
         }
     };
 
+    /**
+     * Signs in an existing user.
+     * @param email
+     * @param password
+     * @returns {Promise<void>}
+     * @throws {Error}
+     */
     const signIn = async (email, password) => {
-        const {data, error} = await supabaseClient.auth.signInWithPassword({
-            email,
-            password,
-        });
+        try {
+            const {data, error: signInError} = await supabaseClient.auth.signInWithPassword({
+                email,
+                password,
+            });
 
-        if (error) {
-            handleError(error);
-        } else {
-            user.value = data;
+            if (signInError) {
+                handleError(signInError);
+            } else {
+                setUser(data);
+            }
+        } catch (err) {
+            handleError(err);
         }
     };
 
+    /**
+     * Signs out the current user.
+     * @returns {Promise<void>}
+     * @throws {Error}
+     */
     const signOut = async () => {
         try {
             await supabaseClient.auth.signOut();
-            user.value = null;
+            setUser(null);
         } catch (err) {
             handleError(err);
         }

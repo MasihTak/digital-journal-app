@@ -29,6 +29,10 @@ const props = defineProps({
     type: String,
     default: ""
   },
+  error: {
+    type: String,
+    default: ""
+  }
 });
 
 /*----------- Data -----------*/
@@ -58,4 +62,5 @@ onMounted(() => {
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
   />
+  <p v-if="error" class="invalid-feedback">{{ error }}</p>
 </template>

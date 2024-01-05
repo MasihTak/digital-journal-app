@@ -1,4 +1,4 @@
 {
   "*.js": "eslint",
-  "/src/*.vue": "eslint"
+  "src/*.vue": "eslint"
 }

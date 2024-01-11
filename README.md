@@ -1,6 +1,10 @@
-# journal-app
+# Digital Journal App
 
-This template should help get you started developing with Vue 3 in Vite.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/06d56437-08ee-46fc-bf78-ff5ceccd2810/deploy-status)](https://app.netlify.com/sites/digital-journal-app/deploys)
+[![Depfu](https://badges.depfu.com/badges/2ef4be1ea72044960dab0d2d0b27dec3/overview.svg)](https://depfu.com/github/MasihTak/digital-journal-app?project_id=39645)
+[![Depfu](https://badges.depfu.com/badges/2ef4be1ea72044960dab0d2d0b27dec3/count.svg)](https://depfu.com/github/MasihTak/digital-journal-app?project_id=39645)
+
+A very Simple Digital Journal app using Vue 3, Pinia, Supabase and Bootstrap 5.
 
 ## Customize configuration
 

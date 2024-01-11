@@ -20,9 +20,14 @@ const router = createRouter({
             component: () => import('../views/auth/SignIn.vue')
         },
         {
-            path: '/notes',
-            name: 'notes',
-            component: () => import('../views/TheNotes.vue')
+            path: '/journals',
+            name: 'journals',
+            component: () => import('../views/TheJournals.vue')
+        },
+        {
+            path: '/journals/new',
+            name: 'newJournal',
+            component: () => import('../views/NewJournal.vue')
         },
         {
             path: '/about',

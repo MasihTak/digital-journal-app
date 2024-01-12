@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import {ref} from "vue";
+import {ref, computed} from "vue";
 import supabaseClient from "@/lib/supabaseClient";
 
 export const useAuthStore = defineStore("auth", () => {
@@ -13,6 +13,8 @@ export const useAuthStore = defineStore("auth", () => {
     const setUser = (userData) => {
         user.value = userData;
     };
+
+    const isAuthenticated = computed(() => user.value !== null)
 
     /**
      * Fetches the current user from the server.
@@ -102,6 +104,7 @@ export const useAuthStore = defineStore("auth", () => {
     return {
         user,
         error,
+        isAuthenticated,
         getUser,
         signUp,
         signIn,

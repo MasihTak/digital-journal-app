@@ -49,7 +49,7 @@ const authenticateUser = handleSubmit(async (values) => {
     })
     console.error(error.value);
   } else {
-    await router.push("/notes");
+    await router.push("/journals");
   }
 })
 </script>

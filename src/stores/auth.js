@@ -4,6 +4,7 @@ import supabaseClient from "@/lib/supabaseClient";
 
 export const useAuthStore = defineStore("auth", () => {
     const user = ref(null);
+    const session = ref(null)
     const error = ref(null);
 
     const handleError = (err) => {
@@ -17,21 +18,11 @@ export const useAuthStore = defineStore("auth", () => {
     const isAuthenticated = computed(() => user.value !== null)
 
     /**
-     * Fetches the current user from the server.
-     * @returns {Promise<void>}
-     * @throws {Error}
+     * Returns the current user.
+     * @returns object
      */
-    const getUser = async () => {
-        try {
-            const {user: userData, error: userError} = await supabaseClient.auth.getUser();
-            if (userError) {
-                handleError(userError);
-            } else {
-                setUser(userData);
-            }
-        } catch (err) {
-            handleError(err);
-        }
+    const getUser = () => {
+        return user.value
     };
 
     /**
@@ -56,7 +47,8 @@ export const useAuthStore = defineStore("auth", () => {
             if (signUpError) {
                 handleError(signUpError);
             } else {
-                setUser(data);
+                setUser(data.user);
+                session.value = data.session
             }
         } catch (err) {
             handleError(err);
@@ -80,7 +72,8 @@ export const useAuthStore = defineStore("auth", () => {
             if (signInError) {
                 handleError(signInError);
             } else {
-                setUser(data);
+                setUser(data.user);
+                session.value = data.session
             }
         } catch (err) {
             handleError(err);

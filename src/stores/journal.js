@@ -1,26 +1,30 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
+import {useAuthStore} from "@/stores/auth";
 import supabaseClient from "@/lib/supabaseClient";
 
 export const useJournalStore = defineStore("journal", () => {
     const journals = ref([]);
     const error = ref(null);
+    const userId = useAuthStore().getUser().id;
 
     const handleError = (err) => {
         error.value = err.message;
     };
 
-
     /**
-     * Fetches all journals from the server.
+     * Fetches all journals for the current user from the server.
      * @returns {Promise<void>}
      * @throws {Error}
      */
     const fetchJournals = async () => {
         try {
+            console.log(userId);
             const {data, error: fetchError} = await supabaseClient
                 .from("journals")
-                .select("*");
+                .select("*")
+                .eq("user_id", userId);
+
             if (fetchError) {
                 handleError(fetchError);
             } else {
@@ -32,18 +36,18 @@ export const useJournalStore = defineStore("journal", () => {
     };
 
     /**
-     * Creates a new journal.
+     * Creates a new journal for the current user.
      * @param title
      * @param content
-     * @param user_id
      * @returns {Promise<void>}
      * @throws {Error}
      */
-    const createJournal = async (title, content, user_id) => {
+    const createJournal = async (title, content) => {
         try {
             const {data, error: createError} = await supabaseClient
                 .from("journals")
-                .insert([{title, content, user_id}]);
+                .insert([{title, content, user_id: userId}]);
+
             if (createError) {
                 handleError(createError);
             } else {
@@ -55,7 +59,7 @@ export const useJournalStore = defineStore("journal", () => {
     };
 
     /**
-     * Updates a journal.
+     * Updates a journal for the current user.
      * @param id
      * @param title
      * @param content
@@ -67,7 +71,9 @@ export const useJournalStore = defineStore("journal", () => {
             const {data, error: updateError} = await supabaseClient
                 .from("journals")
                 .update({title, content})
-                .eq("id", id);
+                .eq("id", id)
+                .eq("user_id", userId);
+
             if (updateError) {
                 handleError(updateError);
             } else {
@@ -80,7 +86,7 @@ export const useJournalStore = defineStore("journal", () => {
     };
 
     /**
-     * Deletes a journal.
+     * Deletes a journal for the current user.
      * @param id
      * @returns {Promise<void>}
      * @throws {Error}
@@ -90,7 +96,8 @@ export const useJournalStore = defineStore("journal", () => {
             const {error: deleteError} = await supabaseClient
                 .from("journals")
                 .delete()
-                .eq("id", id);
+                .eq("id", id)
+                .eq("user_id", userId);
 
             if (deleteError) {
                 handleError(deleteError);

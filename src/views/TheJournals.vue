@@ -1,17 +1,42 @@
 <script setup>
 import {useRouter} from "vue-router";
+import {useAuthStore} from "@/stores/auth";
+import {useJournalStore} from "@/stores/journal";
+import {storeToRefs} from "pinia";
+import {onMounted} from "vue";
+import JournalCard from "@/components/UI/JournalCard.vue";
 
 const router = useRouter();
+const {getUser} = useAuthStore();
+const {fetchJournals} = useJournalStore();
+const {journals} = storeToRefs(useJournalStore());
+
+const user_name = getUser().user_metadata.name;
 
 function createJournal() {
   router.push("/journals/new");
 }
+
+onMounted(() => {
+  fetchJournals();
+})
 </script>
 
 <template>
   <div class="container">
     <section>
-      <h1>My Journals:</h1>
+      <h1>{{ user_name }} Journal's:</h1>
+      <div class="row">
+        <template v-for="journal in journals" :key="journal.id">
+          <div class="col-md-6 mb-5">
+            <JournalCard :title="journal.title"
+                         :content="journal.content"
+                         :url="`/journals/${journal.id}`"
+                         :createdAt="new Date(journal.created_at)"
+            />
+          </div>
+        </template>
+      </div>
       <button class="btn btn-primary"
               @click="createJournal"
               type="button"

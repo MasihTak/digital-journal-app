@@ -19,7 +19,6 @@ export const useJournalStore = defineStore("journal", () => {
      */
     const fetchJournals = async () => {
         try {
-            console.log(userId);
             const {data, error: fetchError} = await supabaseClient
                 .from("journals")
                 .select("*")

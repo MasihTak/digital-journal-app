@@ -8,13 +8,17 @@ import JournalCard from "@/components/UI/JournalCard.vue";
 
 const router = useRouter();
 const {getUser} = useAuthStore();
-const {fetchJournals} = useJournalStore();
+const {fetchJournals, deleteJournal} = useJournalStore();
 const {journals} = storeToRefs(useJournalStore());
 
 const user_name = getUser().user_metadata.name;
 
 function createJournal() {
   router.push("/journals/new");
+}
+
+function onDeleteJournal(id) {
+  deleteJournal(id);
 }
 
 onMounted(() => {
@@ -33,6 +37,7 @@ onMounted(() => {
                          :content="journal.content"
                          :url="`/journals/${journal.id}`"
                          :createdAt="new Date(journal.created_at)"
+                         @delete-journal="onDeleteJournal(journal.id)"
             />
           </div>
         </template>

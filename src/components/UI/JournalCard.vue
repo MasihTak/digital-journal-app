@@ -35,12 +35,12 @@ defineProps({
         ></VMarkdownView>
         <button type="button"
                 class="btn btn-primary me-2"
-                @click="$emit('editJournal')"
+                @click.prevent="$emit('editJournal')"
         >Edit
         </button>
         <button type="button"
                 class="btn btn-danger"
-                @click="$emit('deleteJournal')"
+                @click.prevent="$emit('deleteJournal')"
         >Delete
         </button>
       </div>

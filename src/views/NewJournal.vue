@@ -17,14 +17,16 @@ function saveJournal() {
 
 <template>
   <div class="container h-50">
-    <h2>New Journal</h2>
-    <BaseInput name="title" label="title" v-model="title" />
+    <h2 class="mt-3 mb-5">New Journal</h2>
+    <BaseInput class="mb-4" name="title" label="Title" v-model="title" />
+
+    <span>Content</span>
     <VMarkdownEditor
         v-model="content"
         locale="en"
     />
     <button type="button"
-            class="btn btn-success"
+            class="btn btn-success mt-3 px-4"
             @click="saveJournal"
     >Save
     </button>

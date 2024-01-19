@@ -49,7 +49,7 @@ const authenticateUser = handleSubmit(async (values) => {
     })
     console.error(error.value);
   } else {
-    await router.push("/notes");
+    await router.push("/journals");
   }
 })
 </script>
@@ -89,6 +89,11 @@ const authenticateUser = handleSubmit(async (values) => {
               <button type="submit" class="btn btn-primary mt-4">Sign in</button>
             </div>
           </form>
+
+          <p class="mt-3">Need an account?
+            <router-link to="/sign-up">Sign Up</router-link>
+          </p>
+
         </div>
       </div>
     </section>

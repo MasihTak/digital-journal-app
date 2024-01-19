@@ -117,6 +117,11 @@ const onSignUp = handleSubmit(async (values, {resetForm}) => {
               <button type="submit" class="btn btn-primary mt-4">Sign Up</button>
             </div>
           </form>
+
+          <p class="mt-3">Already have an account?
+            <router-link to="/sign-in">Sign In</router-link>
+          </p>
+
         </div>
       </div>
     </section>

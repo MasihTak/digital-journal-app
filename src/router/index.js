@@ -1,5 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import {useAuthStore} from "@/stores/auth";
+import {storeToRefs} from "pinia";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,12 +24,20 @@ const router = createRouter({
         {
             path: '/journals',
             name: 'journals',
-            component: () => import('../views/TheJournals.vue')
+            component: () => import('../views/TheJournals.vue'),
+            meta: {requiresAuth: true},
+        },
+        {
+            path: '/journals/:id/edit',
+            name: 'journal',
+            component: () => import('../views/EditJournal.vue'),
+            meta: {requiresAuth: true},
         },
         {
             path: '/journals/new',
             name: 'newJournal',
-            component: () => import('../views/NewJournal.vue')
+            component: () => import('../views/NewJournal.vue'),
+            meta: {requiresAuth: true},
         },
         {
             path: '/about',
@@ -35,6 +45,19 @@ const router = createRouter({
             component: () => import('../views/AboutView.vue')
         }
     ]
+})
+
+router.beforeEach((to, from, next) => {
+    const {isAuthenticated} = storeToRefs(useAuthStore());
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!isAuthenticated.value) {
+            next({path: '/sign-in'})
+        } else {
+            next()
+        }
+    } else {
+        next()
+    }
 })
 
 export default router

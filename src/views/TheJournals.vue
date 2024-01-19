@@ -22,6 +22,15 @@ function createJournal() {
 }
 
 /**
+ * Edits a journal
+ *
+ * @param {string} id The id of the journal to edit
+ */
+function onEditJournal(id) {
+  router.push(`/journals/${id}/edit`);
+}
+
+/**
  * Deletes a journal
  *
  * @param {string} id The id of the journal to delete
@@ -63,6 +72,7 @@ onMounted(() => {
                          :url="`/journals/${journal.id}`"
                          :createdAt="new Date(journal.created_at)"
                          @delete-journal="onDeleteJournal(journal.id)"
+                         @edit-journal="onEditJournal(journal.id)"
             />
           </div>
         </template>

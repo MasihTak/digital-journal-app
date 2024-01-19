@@ -28,6 +28,12 @@ const router = createRouter({
             meta: {requiresAuth: true},
         },
         {
+            path: '/journals/:id/edit',
+            name: 'journal',
+            component: () => import('../views/EditJournal.vue'),
+            meta: {requiresAuth: true},
+        },
+        {
             path: '/journals/new',
             name: 'newJournal',
             component: () => import('../views/NewJournal.vue'),

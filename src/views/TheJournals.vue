@@ -48,8 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
-    <section>
+    <section class="container h-100">
       <div class="d-flex align-items-center justify-content-between">
         <h1 class="my-4">{{ user_name }} Journal's</h1>
 
@@ -64,7 +63,17 @@ onMounted(() => {
         </button>
       </div>
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+      <div v-if="journals.length === 0"
+          class="d-flex flex-column align-items-center justify-content-center no-journal"
+      >
+        <h4>No Journals</h4>
+        <p class="mt-2">Tap "Icon" to create a journal</p>
+      </div>
+
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4"
+           v-else
+      >
         <template v-for="journal in journals" :key="journal.id">
           <div class="col">
             <JournalCard :title="journal.title"
@@ -78,9 +87,10 @@ onMounted(() => {
         </template>
       </div>
     </section>
-  </div>
 </template>
 
 <style scoped>
-
+.no-journal {
+  height: calc(100vh - 100px);
+}
 </style>

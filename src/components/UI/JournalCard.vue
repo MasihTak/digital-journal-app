@@ -28,22 +28,28 @@ defineProps({
 </script>
 
 <template>
-  <router-link class="text-decoration-none" :to="url">
+  <router-link class="text-decoration-none"
+               :to="url"
+  >
     <div class="card shadow-sm border-light-subtle h-100">
       <div class="card-body">
-        <h5 class="card-title">{{ title }}</h5>
+        <h5 class="card-title">
+          {{ title }}
+        </h5>
         <VMarkdownView class="mb-5 d-block text-truncate"
                        :content="content"
-        ></VMarkdownView>
+        />
         <button type="button"
                 class="btn btn-primary me-2"
                 @click.prevent="$emit('editJournal')"
-        >Edit
+        >
+          Edit
         </button>
         <button type="button"
                 class="btn btn-danger"
                 @click.prevent="$emit('deleteJournal')"
-        >Delete
+        >
+          Delete
         </button>
       </div>
       <div class="card-footer text-body-secondary">

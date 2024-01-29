@@ -11,6 +11,8 @@ let currentYear = ref(new Date().getFullYear());
 
 <template>
   <footer class="fixed-bottom">
-    <p class="text-center pb-3">&copy; {{ currentYear }} MasihTak.</p>
+    <p class="text-center pb-3">
+      &copy; {{ currentYear }} MasihTak.
+    </p>
   </footer>
 </template>

@@ -51,16 +51,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <label :for="identity" class="d-block">{{ label }}</label>
+  <label :for="identity"
+         class="d-block"
+  >{{ label }}</label>
   <input
-      :id="identity"
-      :name="name"
-      :maxlength="maxlength"
-      :placeholder="placeholder"
-      class="form-control"
-      v-bind="$attrs"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-  />
-  <p v-if="error" class="invalid-feedback">{{ error }}</p>
+    :id="identity"
+    :name="name"
+    :maxlength="maxlength"
+    :placeholder="placeholder"
+    class="form-control"
+    v-bind="$attrs"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+  >
+  <p v-if="error"
+     class="invalid-feedback"
+  >
+    {{ error }}
+  </p>
 </template>

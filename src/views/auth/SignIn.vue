@@ -57,10 +57,14 @@ const authenticateUser = handleSubmit(async (values) => {
 <template>
   <div class="container">
     <section class="pt-5">
-      <h1 class="display-5">Sign in</h1>
+      <h1 class="display-5">
+        Sign in
+      </h1>
       <div class="row mt-5 pt-5">
         <div class="col-md-7 mx-auto">
-          <form class="row g-3" @submit.prevent="authenticateUser">
+          <form class="row g-3"
+                @submit.prevent="authenticateUser"
+          >
             <div class="col-12">
               <BaseInput label="Email Address"
                          name="email"
@@ -83,17 +87,24 @@ const authenticateUser = handleSubmit(async (values) => {
                          :error="errors.password"
                          class="mt-2"
                          :class="errors.password ? 'is-invalid' : ''"
-                         required />
+                         required
+              />
             </div>
             <div class="col-12 text-center text-md-start">
-              <button type="submit" class="btn btn-primary mt-4">Sign in</button>
+              <button type="submit"
+                      class="btn btn-primary mt-4"
+              >
+                Sign in
+              </button>
             </div>
           </form>
 
-          <p class="mt-3">Need an account?
-            <router-link to="/sign-up">Sign Up</router-link>
+          <p class="mt-3">
+            Need an account?
+            <router-link to="/sign-up">
+              Sign Up
+            </router-link>
           </p>
-
         </div>
       </div>
     </section>

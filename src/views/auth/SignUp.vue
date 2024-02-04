@@ -63,10 +63,14 @@ const onSignUp = handleSubmit(async (values, {resetForm}) => {
 <template>
   <div class="container">
     <section class="pt-5">
-      <h1 class="display-5">Sign Up</h1>
+      <h1 class="display-5">
+        Sign Up
+      </h1>
       <div class="row mt-5 pt-5">
         <div class="col-md-7 mx-auto">
-          <form class="row g-3" @submit.prevent="onSignUp">
+          <form class="row g-3"
+                @submit.prevent="onSignUp"
+          >
             <div class="col-md-6">
               <BaseInput label="Name"
                          name="name"
@@ -76,7 +80,8 @@ const onSignUp = handleSubmit(async (values, {resetForm}) => {
                          :error="errors.name"
                          class="mt-2"
                          :class="errors.name ? 'is-invalid' : ''"
-                         required />
+                         required
+              />
             </div>
             <div class="col-md-6">
               <BaseInput label="Family"
@@ -87,7 +92,8 @@ const onSignUp = handleSubmit(async (values, {resetForm}) => {
                          :error="errors.family"
                          class="mt-2"
                          :class="errors.family ? 'is-invalid' : ''"
-                         required />
+                         required
+              />
             </div>
             <div class="col-12">
               <BaseInput label="Email Address"
@@ -99,7 +105,8 @@ const onSignUp = handleSubmit(async (values, {resetForm}) => {
                          :error="errors.email"
                          class="mt-2"
                          :class="errors.email ? 'is-invalid' : ''"
-                         required />
+                         required
+              />
             </div>
             <div class="col-12">
               <BaseInput label="Password"
@@ -111,17 +118,24 @@ const onSignUp = handleSubmit(async (values, {resetForm}) => {
                          maxlength="40"
                          class="mt-2"
                          :class="errors.password ? 'is-invalid' : ''"
-                         required />
+                         required
+              />
             </div>
             <div class="col-12 text-center text-md-start">
-              <button type="submit" class="btn btn-primary mt-4">Sign Up</button>
+              <button type="submit"
+                      class="btn btn-primary mt-4"
+              >
+                Sign Up
+              </button>
             </div>
           </form>
 
-          <p class="mt-3">Already have an account?
-            <router-link to="/sign-in">Sign In</router-link>
+          <p class="mt-3">
+            Already have an account?
+            <router-link to="/sign-in">
+              Sign In
+            </router-link>
           </p>
-
         </div>
       </div>
     </section>

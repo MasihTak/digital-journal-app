@@ -41,5 +41,5 @@ pnpm lint
 
 ## sponsors ❤
 [![JetBrains Logo](https://masihtak.com/portfolio/assets/img/sponsors/jetbrains.svg)](https://www.jetbrains.com/?from=MasihTak)
-[![BitNinja Logo](https://masihtak.com/portfolio/assets/img/sponsors/bitninja.png)](https://bitninja.io?from=MasihTak)
-<a href="https://bitdefender.com/?from=MasihTak"> <img src="https://masihtak.com/portfolio/assets/img/sponsors/bitdefender.jpg" alt="Bitdefender " width="400"/> </a>
+<a href="https://bitninja.io?from=MasihTak"> <img src="https://masihtak.com/portfolio/assets/img/sponsors/bitninja.png" alt="BitNinja Logo" height="150"/> </a>
+<a href="https://bitdefender.com/?from=MasihTak"> <img src="https://masihtak.com/portfolio/assets/img/sponsors/bitdefender.jpg" alt="Bitdefender Logo" width="300"/> </a>

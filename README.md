@@ -6,9 +6,8 @@
 
 A very Simple Digital Journal app using Vue 3, Pinia, Supabase and Bootstrap 5.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Links 🔗
+[Demo](https://digital-journal-app.netlify.app)
 
 ## Project Setup
 
@@ -39,3 +38,8 @@ pnpm test:unit
 ```sh
 pnpm lint
 ```
+
+## sponsors ❤
+[![JetBrains Logo](https://masihtak.com/portfolio/assets/img/sponsors/jetbrains.svg)](https://www.jetbrains.com/?from=MasihTak)
+[![BitNinja Logo](https://masihtak.com/portfolio/assets/img/sponsors/bitninja.png)](https://bitninja.io?from=MasihTak)
+<a href="https://bitdefender.com/?from=MasihTak"> <img src="https://masihtak.com/portfolio/assets/img/sponsors/bitdefender.jpg" alt="Bitdefender " width="400"/> </a>

@@ -32,7 +32,7 @@
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/test-utils": "^2.4.4",
     "eslint": "^8.56.0",
-    "eslint-plugin-vue": "^9.20.1",
+    "eslint-plugin-vue": "^9.21.1",
     "husky": "^8.0.0",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.0",

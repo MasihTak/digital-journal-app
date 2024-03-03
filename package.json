@@ -18,7 +18,7 @@
     "bootstrap": "^5.3.2",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.1",
-    "sass": "^1.70.0",
+    "sass": "^1.71.1",
     "vee-validate": "^4.12.5",
     "vue": "^3.4.19",
     "vue-router": "^4.2.4",

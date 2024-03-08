@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseInput.vue > emits update:modelValue event on input 1`] = `
+[
+  "New Value",
+]
+`;
+
+exports[`BaseInput.vue > matches snapshot 1`] = `
+"<label for="Test ID" class="d-block">Test Label</label>
+<input id="Test ID" name="Test Name" maxlength="10" placeholder="Test Placeholder" class="form-control">
+<p class="invalid-feedback">Test Error</p>"
+`;

@@ -19,7 +19,7 @@
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.1",
     "sass": "^1.74.1",
-    "vee-validate": "^4.12.5",
+    "vee-validate": "^4.12.6",
     "vue": "^3.4.24",
     "vue-router": "^4.3.0",
     "vue3-markdown": "^1.1.9",

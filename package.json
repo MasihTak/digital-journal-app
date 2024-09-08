@@ -17,7 +17,7 @@
     "@vueuse/core": "^10.9.0",
     "bootstrap": "^5.3.3",
     "pinia": "^2.1.6",
-    "pinia-plugin-persistedstate": "^3.2.1",
+    "pinia-plugin-persistedstate": "^3.2.3",
     "sass": "^1.77.8",
     "vee-validate": "^4.13.2",
     "vue": "^3.4.38",

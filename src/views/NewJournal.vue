@@ -2,7 +2,7 @@
 import {ref} from 'vue';
 import {useJournalStore} from "@/stores/journal";
 import {VMarkdownEditor} from 'vue3-markdown';
-import 'vue3-markdown/dist/style.css';
+import 'vue3-markdown/dist/vue3-markdown.css';
 import BaseInput from "@/components/Form/BaseInput.vue";
 
 const {createJournal} = useJournalStore();

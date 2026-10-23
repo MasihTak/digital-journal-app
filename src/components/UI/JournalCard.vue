@@ -1,7 +1,7 @@
 <script setup>
 import {formatTimeAgo} from '@vueuse/core';
 import {VMarkdownView} from 'vue3-markdown'
-import 'vue3-markdown/dist/style.css'
+import 'vue3-markdown/dist/vue3-markdown.css'
 
 /*----------- Emits -----------*/
 defineEmits(['deleteJournal', 'editJournal'])

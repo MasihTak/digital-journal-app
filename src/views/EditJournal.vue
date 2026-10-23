@@ -5,7 +5,7 @@ import {storeToRefs} from "pinia";
 import {useJournalStore} from "@/stores/journal";
 import BaseInput from "@/components/Form/BaseInput.vue";
 import {VMarkdownEditor} from "vue3-markdown";
-import 'vue3-markdown/dist/style.css';
+import 'vue3-markdown/dist/vue3-markdown.css';
 
 const route = useRoute();
 const {updateJournal} = useJournalStore();

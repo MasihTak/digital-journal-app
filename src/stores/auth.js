@@ -109,7 +109,7 @@ export const useAuthStore = defineStore("auth", () => {
     {
         persist: {
             storage: sessionStorage,
-            paths: ['user', 'session'],
+            pick: ['user', 'session'],
         }
     }
 );

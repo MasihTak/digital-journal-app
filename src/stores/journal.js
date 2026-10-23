@@ -6,7 +6,10 @@ import supabaseClient from "@/lib/supabaseClient";
 export const useJournalStore = defineStore("journal", () => {
     const journals = ref([]);
     const error = ref(null);
-    const userId = useAuthStore().getUser().id;
+    const authStore = useAuthStore();
+
+    // Read per call: the signed-in user can change while this store lives.
+    const getUserId = () => authStore.getUser().id;
 
     const handleError = (err) => {
         error.value = err.message;
@@ -22,7 +25,7 @@ export const useJournalStore = defineStore("journal", () => {
             const {data, error: fetchError} = await supabaseClient
                 .from("journals")
                 .select("*")
-                .eq("user_id", userId);
+                .eq("user_id", getUserId());
 
             if (fetchError) {
                 handleError(fetchError);
@@ -45,12 +48,14 @@ export const useJournalStore = defineStore("journal", () => {
         try {
             const {data, error: createError} = await supabaseClient
                 .from("journals")
-                .insert([{title, content, user_id: userId}]);
+                .insert([{title, content, user_id: getUserId()}])
+                .select()
+                .single();
 
             if (createError) {
                 handleError(createError);
             } else {
-                journals.value.push(data[0]);
+                journals.value.push(data);
             }
         } catch (err) {
             handleError(err);
@@ -71,13 +76,15 @@ export const useJournalStore = defineStore("journal", () => {
                 .from("journals")
                 .update({title, content})
                 .eq("id", id)
-                .eq("user_id", userId);
+                .eq("user_id", getUserId())
+                .select()
+                .single();
 
             if (updateError) {
                 handleError(updateError);
             } else {
                 const index = journals.value.findIndex((journal) => journal.id === id);
-                journals.value[index] = data[0];
+                if (index !== -1) journals.value[index] = data;
             }
         } catch (err) {
             handleError(err);
@@ -96,7 +103,7 @@ export const useJournalStore = defineStore("journal", () => {
                 .from("journals")
                 .delete()
                 .eq("id", id)
-                .eq("user_id", userId);
+                .eq("user_id", getUserId());
 
             if (deleteError) {
                 handleError(deleteError);

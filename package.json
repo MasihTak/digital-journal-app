@@ -13,7 +13,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.118.0",
+    "@supabase/supabase-js": "^2.119.0",
     "@vueuse/core": "^15.0.0",
     "bootstrap": "^5.3.8",
     "pinia": "^4.1.0",
